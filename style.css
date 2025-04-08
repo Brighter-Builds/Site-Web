@@ -47,7 +47,7 @@
     background: var(--bg-color, var( --white));
     color: var(--text-color, var( --black));
     border: var(--bw) solid var(--black);
-    max-width: 350px;
+    max-width: 400px;
     padding: 30px;
     position: relative;
     transition: all 0.3s ease;
