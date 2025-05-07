@@ -177,3 +177,190 @@ gsap.to(animProps, {
     renderingParent.rotation.set(animProps.xRot, animProps.yRot, 0);
   },
 });
+
+// Configuration de l'effet 3D des cartes
+const initProjectCards = () => {
+    if (typeof VanillaTilt === 'undefined') {
+        console.warn('VanillaTilt n\'est pas chargé');
+        return;
+    }
+
+    const cards = document.querySelectorAll('.project-card');
+    
+    cards.forEach(card => {
+        // Initialisation de l'effet tilt
+        VanillaTilt.init(card, {
+            reverse: false,
+            max: 10,
+            startX: 0,
+            startY: 0,
+            perspective: 1500,
+            scale: 1.03,
+            speed: 300,
+            transition: true,
+            axis: null,
+            reset: true,
+            "full-page-listening": false,
+            gyroscope: false,
+            gyroscopeMinAngleX: -45,
+            gyroscopeMaxAngleX: 45,
+            gyroscopeMinAngleY: -45,
+            gyroscopeMaxAngleY: 45
+        });
+
+        // Ajouter la classe pour activer la perspective 3D
+        card.style.transformStyle = 'preserve-3d';
+        
+        // Sélectionner les éléments internes
+        const content = card.querySelector('.project-content');
+        const image = card.querySelector('.project-image');
+        const title = card.querySelector('h3');
+        const description = card.querySelector('p');
+        const button = card.querySelector('.project-btn');
+
+        // Appliquer les transformations 3D
+        if (content) content.style.transform = 'translateZ(30px)';
+        if (image) image.style.transform = 'translateZ(40px)';
+        if (title) title.style.transform = 'translateZ(50px)';
+        if (description) description.style.transform = 'translateZ(40px)';
+        if (button) button.style.transform = 'translateZ(45px)';
+    });
+};
+
+// Attendre que le DOM soit chargé
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initProjectCards);
+} else {
+    initProjectCards();
+}
+
+// Configuration de l'effet 3D des box
+const initBoxTilt = () => {
+    const boxes = document.querySelectorAll('.container .box');
+    
+    boxes.forEach(box => {
+        VanillaTilt.init(box, {
+            max: 25, // Augmentation de l'angle maximal
+            speed: 400,
+            glare: true,
+            "max-glare": 0.5,
+            scale: 1.1, // Agrandissement au survol
+            perspective: 1000,
+            easing: "cubic-bezier(.03,.98,.52,.99)",
+            transition: true
+        });
+
+        // Ajout d'une class pour le style 3D
+        box.style.transformStyle = 'preserve-3d';
+        
+        // Ajouter l'effet de profondeur sur le contenu
+        const content = box.querySelector('b');
+        if (content) {
+            content.style.transform = 'translateZ(50px)';
+        }
+    });
+};
+
+// Initialiser l'effet quand le DOM est chargé
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBoxTilt);
+} else {
+    initBoxTilt();
+}
+
+// Configuration et initialisation des particules
+particlesJS("particles-js", {
+    particles: {
+        number: {
+            value: 80,
+            density: {
+                enable: true,
+                value_area: 800
+            }
+        },
+        color: {
+            value: ["#8093F1", "#B388EB", "#F7AEF8"]
+        },
+        shape: {
+            type: "circle"
+        },
+        opacity: {
+            value: 0.5,
+            random: true
+        },
+        size: {
+            value: 3,
+            random: true
+        },
+        move: {
+            enable: true,
+            speed: 2,
+            direction: "none",
+            random: true,
+            out_mode: "out"
+        }
+    },
+    interactivity: {
+        detect_on: "canvas",
+        events: {
+            onhover: {
+                enable: true,
+                mode: "grab"
+            },
+            onclick: {
+                enable: true,
+                mode: "push"
+            },
+            resize: true
+        }
+    }
+});
+
+// Effet de parallaxe sur le scroll
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const parallaxBg = document.querySelector('.parallax-bg');
+    parallaxBg.style.transform = `translateY(${scrolled * 0.5}px)`;
+});
+
+// Effet de parallaxe sur le hero
+document.addEventListener('mousemove', (e) => {
+    const space = document.querySelector('.space');
+    const stars = document.querySelector('.stars1');
+    const flares = document.querySelectorAll('.flare');
+    
+    const mouseX = e.clientX / window.innerWidth;
+    const mouseY = e.clientY / window.innerHeight;
+    
+    // Effet de parallaxe sur l'espace et les étoiles
+    if (space) {
+        space.style.transform = `translate3d(${mouseX * -30}px, ${mouseY * -30}px, 0)`;
+    }
+    if (stars) {
+        stars.style.transform = `translate3d(${mouseX * -50}px, ${mouseY * -50}px, 0)`;
+    }
+    
+    // Effet de parallaxe sur les flares lumineux
+    flares.forEach((flare, index) => {
+        const depth = (index + 1) * 0.2;
+        flare.style.transform = `translate3d(${mouseX * -70 * depth}px, ${mouseY * -70 * depth}px, 0)`;
+    });
+});
+
+// Animation des cartes au scroll
+const observerOptions = {
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.project-card').forEach(card => {
+    observer.observe(card);
+});
