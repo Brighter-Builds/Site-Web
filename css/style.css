@@ -39,6 +39,13 @@ html {
 	margin-right: 2rem;
 }
 
+.logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
 .nav {
 	display: flex;
 	gap: 2rem;
@@ -1074,7 +1081,7 @@ canvas {
 
 .container .box:nth-child(1)::before,
 .container .box:nth-child(1)::after {
-  background: linear-gradient(45deg, #ffbc00, #ff0058);
+  background: linear-gradient(45deg, #FDC5F5, #F7AEF8);
 }
 
 .container .box:nth-child(2)::before,
@@ -1084,7 +1091,7 @@ canvas {
 
 .container .box:nth-child(3)::before,
 .container .box:nth-child(3)::after {
-  background: linear-gradient(45deg, #4dff03, #00d0ff);
+  background: linear-gradient(45deg, #8093F1, #72DDF7);
 }
 
 .coming-soon-content {

@@ -1,0 +1,183 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: radial-gradient(circle at center, #050028 0%, #030014 100%);
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.construction-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.construction-content {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 3rem 4rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(179, 136, 235, 0.1);
+    position: relative;
+    transform-style: preserve-3d;
+    transform: perspective(1500px);
+    transition: transform 0.4s ease;
+}
+
+.construction-content::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, #FDC5F5, #F7AEF8, #B388EB, #8093F1);
+    border-radius: 17px;
+    z-index: -1;
+    opacity: 0.2;
+    transition: opacity 0.3s ease;
+}
+
+.construction-content:hover::before {
+    opacity: 0.4;
+}
+
+h1 {
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #FDC5F5, #F7AEF8, #B388EB, #8093F1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transform: translateZ(20px);
+}
+
+p {
+    color: #e0e0e0;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 0.5rem 0;
+    transform: translateZ(15px);
+}
+
+/* Effets d'arrière-plan */
+.background-effects {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.flare {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(150px);
+    opacity: 0.2;
+    animation: float 35s ease-in-out infinite alternate;
+}
+
+.flare.cyan {
+    width: 600px;
+    height: 600px;
+    background: #5df4ff;
+    top: 20%;
+    left: 30%;
+}
+
+.flare.magenta {
+    width: 500px;
+    height: 500px;
+    background: #c300ff;
+    bottom: 20%;
+    right: 20%;
+    animation-delay: 3s;
+}
+
+.flare.white {
+    width: 300px;
+    height: 300px;
+    background: rgb(255, 95, 255);
+    opacity: 0.08;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(90px);
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.space {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    background: rgba(128, 0, 128, 0.1);
+    transform-style: preserve-3d;
+}
+
+/* Animations */
+@keyframes float {
+    0% {
+        transform: translateY(0px) translateX(0px);
+    }
+    50% {
+        transform: translateY(-20px) translateX(20px);
+    }
+    100% {
+        transform: translateY(0px) translateX(0px);
+    }
+}
+
+@keyframes gradientMovement {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Animation pour les étoiles filantes */
+.meteoro {
+    position: absolute;
+    background-color: #fff;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    transform: rotate(-35deg);
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+}
+
+.meteoro:before {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 1px;
+    background: linear-gradient(90deg, #fff, transparent);
+    transform: translateX(-100%);
+}
