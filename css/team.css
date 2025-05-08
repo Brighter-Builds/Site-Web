@@ -425,3 +425,25 @@ html {
     background-position: 0% 50%;
   }
 }
+
+/* Style for Louloudelta's golden card */
+.louloudelta-card {
+  transition: box-shadow 0.3s, border 0.3s;
+}
+.louloudelta-card.gold {
+  box-shadow: 0 0 20px 4px gold, 0 0 0 4px #ffd700;
+  border: 2px solid #ffd700;
+}
+.louloudelta-img:hover ~ h3,
+.louloudelta-img:hover ~ .role,
+.louloudelta-img:hover ~ .contact-btn {
+  /* Optionally, you can style text on hover if needed */
+}
+.louloudelta-img:hover {
+  cursor: pointer;
+}
+
+/* Ajoute l'effet doré à la carte quand on survole la photo */
+.louloudelta-img:hover {
+  /* Ajoute la classe gold à la carte par JS */
+}

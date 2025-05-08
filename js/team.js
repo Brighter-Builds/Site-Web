@@ -122,6 +122,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+
+    // Add/remove gold class to Louloudelta card on hover
+    const loulouImg = document.querySelector('.louloudelta-img img');
+    const loulouCard = document.querySelector('.louloudelta-card');
+    if (loulouImg && loulouCard) {
+        loulouImg.addEventListener('mouseenter', function () {
+            loulouCard.classList.add('gold');
+        });
+        loulouImg.addEventListener('mouseleave', function () {
+            loulouCard.classList.remove('gold');
+        });
+    }
 });
 
 // Animate background flares
