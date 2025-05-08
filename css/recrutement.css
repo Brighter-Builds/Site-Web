@@ -1,0 +1,199 @@
+/* Style principal pour la page de recrutement */
+body {
+  background: radial-gradient(circle at center, #050028 0%, #030014 100%);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  padding-top: 120px;
+}
+
+.hero-content {
+  background: rgba(3,0,20,0.92);
+  border-radius: 24px;
+  box-shadow: 0 0 40px 10px #8093f133;
+  padding: 3rem 2.5rem 2.5rem 2.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 3;
+  margin-bottom: 1.5rem;
+  animation: none;
+  opacity: 0;
+}
+
+.hero-content h1 {
+  font-size: 2.7rem;
+  margin-bottom: 1.2rem;
+  background: linear-gradient(135deg, #F7AEF8, #B388EB, #8093F1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 15px #b388eb44;
+}
+
+.hero-content p {
+  color: rgba(255,255,255,0.85);
+  font-size: 1.15rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.hero-content ul {
+  margin-bottom: 2.5rem;
+  padding-left: 0;
+  list-style: none;
+}
+.hero-content ul li {
+  margin-bottom: 0.7rem;
+  font-size: 1.08rem;
+  padding-left: 0.5em;
+  position: relative;
+}
+.hero-content ul li::before {
+  content: '✦';
+  color: #B388EB;
+  margin-right: 0.7em;
+  font-size: 1.1em;
+}
+
+.btn-container {
+  margin-top: 1.2rem;
+}
+
+#space-btn {
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  background: linear-gradient(120deg, #F7AEF8, #B388EB, #8093F1);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border: none;
+  box-shadow: 0 4px 20px #b388eb55;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  position: relative;
+  z-index: 2;
+}
+#space-btn:hover {
+  background: linear-gradient(120deg, #8093F1, #B388EB, #F7AEF8);
+  transform: scale(1.07);
+  box-shadow: 0 0 40px 10px #8093f1cc;
+}
+
+.animated-logo {
+  margin-bottom: 2rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.animated-logo img {
+  max-width: 150px;
+  height: auto;
+  margin-bottom: 1.2rem;
+  filter: drop-shadow(0 0 15px #fff3);
+  animation: none;
+}
+
+/* Flares et background */
+.flare {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.25;
+  z-index: 1;
+  pointer-events: none;
+  animation: float 35s ease-in-out infinite alternate;
+}
+.flare.cyan {
+  width: 400px;
+  height: 400px;
+  background: #5df4ff;
+  top: 10%;
+  left: 10%;
+}
+.flare.magenta {
+  width: 350px;
+  height: 350px;
+  background: #c300ff;
+  bottom: 10%;
+  right: 10%;
+  animation-delay: 3s;
+}
+.flare.white {
+  width: 200px;
+  height: 200px;
+  background: #fff;
+  opacity: 0.08;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(80px);
+}
+
+.directional-flare {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(closest-side, rgba(255,255,255,0.08), transparent 80%);
+  opacity: 1;
+  filter: blur(100px);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 6;
+  transform: translate(-50%, -50%);
+}
+
+.space {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.stars1 {
+  background-image: radial-gradient(1px 1px at 25px 5px, white, rgba(255,255,255,0)),
+    radial-gradient(1px 1px at 50px 25px, white, rgba(255,255,255,0)),
+    radial-gradient(1px 1px at 125px 20px, white, rgba(255,255,255,0)),
+    radial-gradient(1.5px 1.5px at 50px 75px, white, rgba(255,255,255,0)),
+    radial-gradient(2px 2px at 15px 125px, white, rgba(255,255,255,0)),
+    radial-gradient(2.5px 2.5px at 110px 80px, white, rgba(255,255,255,0));
+  transform-style: preserve-3d;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+@media (max-width: 700px) {
+  .hero-content {
+    padding: 2rem 0.7rem 1.5rem 0.7rem;
+    max-width: 98vw;
+  }
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+  .animated-logo img {
+    max-width: 80px;
+  }
+}
