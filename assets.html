@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assets - Brighter Builds</title>
+  <link rel="stylesheet" href="css/assets.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="logo.png" type="image/png">
+</head>
+<body>
+    <header class="site-header">
+      <div class="logo">
+        <a href="index.html">
+          <img src="logo.png" alt="Logo Brighter Builds">
+          <span>Brighter Builds</span>
+        </a>
+      </div>
+      <nav class="nav">
+        <a href="projects.html">Projets</a>
+        <a href="team.html">Equipe</a>
+        <a href="recrutement.html">Recrutement</a>
+        <a href="reseaux.html">Réseaux</a>
+        <a href="https://discord.gg/8AsrS9Vtjt" target="_blank">Nous contacter</a>
+        <a href="https://ko-fi.com/brighterbuilds" target="_blank">
+          <button class="littlebutton">Ko-Fi</button>
+        </a>
+      </nav>
+    </header>
+    
+    <div id="password-container">
+        <h2>Accès protégé</h2>
+        <p>Veuillez entrer le mot de passe pour accéder à cette page :</p>
+        <form onsubmit="return false;" style="display: flex; flex-direction: column; align-items: center;">
+        <div class="inputbox">
+            <input type="password" id="password-input" required="required" autocomplete="off" placeholder=" ">
+            <span>Mot de passe</span>
+            <i></i>
+        </div>
+        <button id="password-submit" style="margin-top: 1.2rem;">Valider</button>
+        </form>
+        <p id="password-error" style="color:red; display:none;">Mot de passe incorrect.</p>
+    </div>
+
+  <div id="assets-content" style="display:none;">
+    <section class="assets-section" style="padding-top:120px; min-height:100vh;">
+      <h1 class="section-title">Assets Brighter Builds</h1>
+      <div class="team-category">
+        <h2 class="section-title" style="margin-bottom:3rem;">Bannières</h2>
+        <div class="category-separator"></div>
+        <div class="media-list carousel" style="justify-content:center;align-items:center;">
+          <button class="carousel-btn prev">&#10094;</button>
+          <div class="carousel-track">
+            <img src="assets/banner/banner.png" alt="Bannière principale">
+            <img src="assets/banner/blackbanner.jpeg" alt="Bannière noire">
+            <img src="assets/banner/greenbanner.png" alt="Bannière verte">
+            <img src="assets/banner/redbanner.png" alt="Bannière rouge">
+            <img src="assets/banner/yellowbanner.png" alt="Bannière jaune">
+            <img src="assets/banner/bluebanner.png" alt="Bannière bleue">
+          </div>
+          <button class="carousel-btn next">&#10095;</button>
+        </div>
+      </div>
+      <div class="team-category">
+        <h2 class="section-title" style="margin-bottom:3rem;">Logo</h2>
+        <div class="category-separator"></div>
+        <div class="media-list" style="display:flex;justify-content:center;align-items:center;">
+          <div class="logo-highlight" style="background:rgba(179,136,235,0.10);border-radius:2rem;padding:2.5rem 3rem;box-shadow:0 0 40px 10px #b388eb33;display:flex;justify-content:center;align-items:center;">
+            <img src="logo.png" alt="Logo Brighter Builds" style="max-width:180px;filter:drop-shadow(0 0 18px #b388eb88);">
+          </div>
+        </div>
+      </div>
+      <div class="team-category">
+        <h2 class="section-title" style="margin-bottom:3rem;">Palette de couleur</h2>
+        <div class="category-separator"></div>
+        <div class="palette-list" style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-top:2.5rem;">
+          <div class="color-swatch main-color" data-color="#fdc5f5" style="background:#fdc5f5;border-radius:1.2rem;width:110px;height:110px;box-shadow:0 0 18px #fdc5f588;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:transform 0.25s, box-shadow 0.25s;animation:popIn 0.5s 0s both;">
+            <span style="color:#222;font-weight:bold;">#fdc5f5</span>
+            <button class="copy-btn" style="margin-top:0.5rem;font-size:0.9rem;padding:0.2rem 0.7rem;border-radius:1em;border:none;background:#fff;cursor:pointer;">Copier</button>
+          </div>
+          <div class="color-swatch main-color" data-color="#f7aef8" style="background:#f7aef8;border-radius:1.2rem;width:110px;height:110px;box-shadow:0 0 18px #f7aef888;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:transform 0.25s, box-shadow 0.25s;animation:popIn 0.5s 0.05s both;">
+            <span style="color:#222;font-weight:bold;">#f7aef8</span>
+            <button class="copy-btn" style="margin-top:0.5rem;font-size:0.9rem;padding:0.2rem 0.7rem;border-radius:1em;border:none;background:#fff;cursor:pointer;">Copier</button>
+          </div>
+          <div class="color-swatch" data-color="#d59bf2" style="background:#d59bf2;border-radius:1.2rem;width:110px;height:110px;box-shadow:0 0 18px #d59bf288;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:transform 0.25s, box-shadow 0.25s;animation:popIn 0.5s 0.1s both;">
+            <span style="color:#222;font-weight:bold;">#d59bf2</span>
+            <button class="copy-btn" style="margin-top:0.5rem;font-size:0.9rem;padding:0.2rem 0.7rem;border-radius:1em;border:none;background:#fff;cursor:pointer;">Copier</button>
+          </div>
+          <div class="color-swatch main-color" data-color="#b388eb" style="background:#b388eb;border-radius:1.2rem;width:110px;height:110px;box-shadow:0 0 18px #b388eb88;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:transform 0.25s, box-shadow 0.25s;animation:popIn 0.5s 0.15s both;">
+            <span style="color:#222;font-weight:bold;">#b388eb</span>
+            <button class="copy-btn" style="margin-top:0.5rem;font-size:0.9rem;padding:0.2rem 0.7rem;border-radius:1em;border:none;background:#fff;cursor:pointer;">Copier</button>
+          </div>
+          <div class="color-swatch" data-color="#9a8eee" style="background:#9a8eee;border-radius:1.2rem;width:110px;height:110px;box-shadow:0 0 18px #9a8eee88;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:transform 0.25s, box-shadow 0.25s;animation:popIn 0.5s 0.2s both;">
+            <span style="color:#222;font-weight:bold;">#9a8eee</span>
+            <button class="copy-btn" style="margin-top:0.5rem;font-size:0.9rem;padding:0.2rem 0.7rem;border-radius:1em;border:none;background:#fff;cursor:pointer;">Copier</button>
+          </div>
+          <div class="color-swatch main-color" data-color="#8093f1" style="background:#8093f1;border-radius:1.2rem;width:110px;height:110px;box-shadow:0 0 18px #8093f188;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:transform 0.25s, box-shadow 0.25s;animation:popIn 0.5s 0.25s both;">
+            <span style="color:#222;font-weight:bold;">#8093f1</span>
+            <button class="copy-btn" style="margin-top:0.5rem;font-size:0.9rem;padding:0.2rem 0.7rem;border-radius:1em;border:none;background:#fff;cursor:pointer;">Copier</button>
+          </div>
+          <div class="color-swatch" data-color="#79b8f4" style="background:#79b8f4;border-radius:1.2rem;width:110px;height:110px;box-shadow:0 0 18px #79b8f488;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:transform 0.25s, box-shadow 0.25s;animation:popIn 0.5s 0.3s both;">
+            <span style="color:#222;font-weight:bold;">#79b8f4</span>
+            <button class="copy-btn" style="margin-top:0.5rem;font-size:0.9rem;padding:0.2rem 0.7rem;border-radius:1em;border:none;background:#fff;cursor:pointer;">Copier</button>
+          </div>
+          <div class="color-swatch main-color" data-color="#72ddf7" style="background:#72ddf7;border-radius:1.2rem;width:110px;height:110px;box-shadow:0 0 18px #72ddf788;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:transform 0.25s, box-shadow 0.25s;animation:popIn 0.5s 0.35s both;">
+            <span style="color:#222;font-weight:bold;">#72ddf7</span>
+            <button class="copy-btn" style="margin-top:0.5rem;font-size:0.9rem;padding:0.2rem 0.7rem;border-radius:1em;border:none;background:#fff;cursor:pointer;">Copier</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Navigation</h3>
+          <nav class="footer-nav">
+            <a href="projects.html">Projets</a>
+            <a href="team.html">Equipe</a>
+            <a href="recrutement.html">Recrutement</a>
+            <a href="reseaux.html">Réseaux</a>
+            <a href="https://discord.gg/8AsrS9Vtjt" target="_blank">Nous contacter</a>
+          </nav>
+        </div>
+        <div class="footer-section">
+          <h3>Nous soutenir</h3>
+          <div class="kofi-button">
+            <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+            <script type='text/javascript'>kofiwidget2.init('Soutenez nous !', '#b388eb', 'H2H71EL9VU');kofiwidget2.draw();</script>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; Brighter Builds 2025 - All Rights Reserved</p>
+      </div>
+    </footer>
+  </div>
+  <script src="js/assets.js"></script>
+</body>
+</html>

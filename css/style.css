@@ -12,7 +12,6 @@ html {
   color: white;
   font-family: "Segoe UI", sans-serif;
   height: 100%;
-  cursor: none;
 }
 
 .site-header {
@@ -813,6 +812,11 @@ canvas {
   100% {
     transform: scale(1.5);
   }
+}
+
+/* Curseur custom visible par défaut */
+.cursor, .cursor-follower {
+  display: block !important;
 }
 
 .cursor {
