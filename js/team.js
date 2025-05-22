@@ -134,6 +134,89 @@ document.addEventListener('DOMContentLoaded', () => {
             loulouCard.classList.remove('gold');
         });
     }
+
+    // === DYNAMIC SECTION COLOR THEME ===
+    function setSectionTheme(main, dark) {
+        document.documentElement.style.setProperty('--section-main', main);
+        document.documentElement.style.setProperty('--section-dark', dark);
+        document.body.classList.add('dynamic-section');
+        // Fond général : transparent, on ne touche plus au body
+        document.body.style.background = '';
+        // Flares : seul le flare du milieu (magenta) et le deuxième (cyan) prennent la couleur, avec un fondu doux
+        document.querySelectorAll('.flare').forEach(f => {
+            f.style.background = '';
+            f.style.filter = '';
+            f.style.opacity = '0.5';
+        });
+        const flareMagenta = document.querySelector('.flare.magenta');
+        if (flareMagenta) {
+            flareMagenta.style.background = `radial-gradient(circle, ${main} 0%, ${dark} 80%, transparent 100%)`;
+            flareMagenta.style.filter = 'blur(120px)';
+            flareMagenta.style.opacity = '0.7';
+            flareMagenta.style.transition = 'background 0.8s, filter 0.8s, opacity 0.8s';
+        }
+        const flareCyan = document.querySelector('.flare.cyan');
+        if (flareCyan) {
+            flareCyan.style.background = `radial-gradient(circle, ${dark} 0%, ${main} 60%, transparent 100%)`;
+            flareCyan.style.filter = 'blur(100px)';
+            flareCyan.style.opacity = '0.5';
+            flareCyan.style.transition = 'background 0.8s, filter 0.8s, opacity 0.8s';
+        }
+        // Etoiles : pas de changement
+        const stars = document.querySelector('.stars1');
+        if (stars) stars.style.background = '';
+    }
+
+    function resetSectionTheme() {
+        document.documentElement.style.setProperty('--section-main', '#B388EB');
+        document.documentElement.style.setProperty('--section-dark', '#8093F1');
+        document.body.classList.remove('dynamic-section');
+        document.body.style.background = '';
+        document.querySelectorAll('.flare').forEach(f => {
+            f.style.background = '';
+            f.style.filter = '';
+            f.style.opacity = '';
+        });
+        const stars = document.querySelector('.stars1');
+        if (stars) stars.style.background = '';
+    }
+
+    // Survol des sections pour changer le thème
+    const teamSections = document.querySelectorAll('.team-category');
+    teamSections.forEach(section => {
+        section.addEventListener('mouseenter', () => {
+            const main = section.getAttribute('data-color');
+            const dark = section.getAttribute('data-dark');
+            setSectionTheme(main, dark);
+            // Réinitialise tous les styles personnalisés sur toutes les cartes/boutons/images du site
+            document.querySelectorAll('.contact-btn, .team-card, .profile-image').forEach(el => {
+                el.style.removeProperty('border-color');
+                el.style.removeProperty('box-shadow');
+                if (el.classList.contains('contact-btn')) {
+                    el.style.removeProperty('background');
+                }
+            });
+            // Applique la couleur uniquement sur les éléments de la section survolée
+            section.querySelectorAll('.contact-btn, .profile-image, .team-card').forEach(el => {
+                el.style.setProperty('border-color', main, 'important');
+                el.style.setProperty('box-shadow', `0 0 0 2px ${main}`, 'important');
+                if (el.classList.contains('contact-btn')) {
+                    el.style.setProperty('background', `linear-gradient(90deg, ${main}, ${dark})`, 'important');
+                }
+            });
+        });
+        section.addEventListener('mouseleave', () => {
+            resetSectionTheme();
+            // Réinitialise uniquement les styles personnalisés de cette section
+            section.querySelectorAll('.contact-btn, .team-card, .profile-image').forEach(el => {
+                el.style.removeProperty('border-color');
+                el.style.removeProperty('box-shadow');
+                if (el.classList.contains('contact-btn')) {
+                    el.style.removeProperty('background');
+                }
+            });
+        });
+    });
 });
 
 // Animate background flares

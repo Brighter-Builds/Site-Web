@@ -1,3 +1,53 @@
+:root {
+  --section-main: #ff0053;
+  --section-dark: #7a002e;
+}
+
+body.dynamic-section {
+  transition: background 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+
+.space.stars1,
+.background-effects .flare,
+.particles-js {
+  transition: background 0.7s cubic-bezier(0.4,0,0.2,1), filter 0.7s;
+}
+
+.contact-btn, .team-card {
+  transition: border-color 0.5s, box-shadow 0.5s, background 0.5s;
+}
+
+.profile-image {
+  transition: border-color 0.5s, box-shadow 0.5s;
+}
+
+.contact-btn {
+  border-color: var(--section-main, #ff0053);
+  background: linear-gradient(90deg, var(--section-main, #ff0053), var(--section-dark, #7a002e));
+  color: #fff;
+}
+
+.contact-btn:hover {
+  background: linear-gradient(90deg, var(--section-dark, #7a002e), var(--section-main, #ff0053));
+  color: #fff;
+}
+
+.team-card {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transform: perspective(1000px) translateZ(0) scale(1);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.5s, box-shadow 0.5s;
+  will-change: transform;
+  border: 2px solid #B388EB; /* Couleur Brighter Builds par défaut */
+  box-shadow: none; /* Pas de box-shadow coloré par défaut */
+}
+
+.profile-image {
+  border: 3px solid var(--section-main, #ff0053);
+}
+
 .team-section {
   position: relative;
   min-height: 100vh;
@@ -100,16 +150,6 @@
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   padding: 0 1rem;
-}
-
-.team-card {
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 20px;
-  overflow: hidden;
-  transform-style: preserve-3d;
-  transform: perspective(1000px) translateZ(0) scale(1);
-  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-  will-change: transform;
 }
 
 .team-card::before {

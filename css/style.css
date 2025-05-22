@@ -814,11 +814,6 @@ canvas {
   }
 }
 
-/* Curseur custom visible par défaut */
-.cursor, .cursor-follower {
-  display: block !important;
-}
-
 .cursor {
   position: fixed;
   width: 8px;
