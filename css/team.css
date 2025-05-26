@@ -44,7 +44,7 @@ body.dynamic-section {
   box-shadow: none; /* Pas de box-shadow coloré par défaut */
 
   .magenoir {
-    background-image: url(assets/mage_noir-bg.png);
+    background-image: url(/assets/mage_noir-bg.png);
   }
 }
 
