@@ -42,6 +42,10 @@ body.dynamic-section {
   will-change: transform;
   border: 2px solid #B388EB; /* Couleur Brighter Builds par défaut */
   box-shadow: none; /* Pas de box-shadow coloré par défaut */
+
+  .magenoir {
+    background-image: url(assets/mage_noir-bg.png);
+  }
 }
 
 .profile-image {
