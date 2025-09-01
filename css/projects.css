@@ -8,6 +8,7 @@ body {
     flex-direction: column;
     position: relative;
     overflow-x: hidden;
+    cursor: none;
 }
 
 .construction-container {
